@@ -1,11 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
   color: #00B7FF;
 }
+
+.form-container{
+  width: 300px;
+  margin: auto;
+  padding: 3rem;
+}
+
 .card-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,7 +32,7 @@ height: 300px;
 }
 
 .card-image{
-  background: #685d5d;
+  background: #0ea9ba2f;
   height: 150px;
 }
 

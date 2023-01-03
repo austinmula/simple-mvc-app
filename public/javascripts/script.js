@@ -1,5 +1,6 @@
 const server = 'http://localhost:3000';
 const container = document.querySelector(".container");
+let books;
 
 async function fetchBooks() {
     const url = server + '/api/books';
@@ -11,7 +12,7 @@ async function fetchBooks() {
         },
     };
     const response = await fetch(url, options);
-    const books = await response.json();
+    books = await response.json();
 
     console.log(books);
 
@@ -20,7 +21,55 @@ async function fetchBooks() {
 
 fetchBooks()
 
+async function addBook() {
+
+    const url = server + '/api/books';
+
+    const book = {
+        author: document.getElementById("author").value,
+        bookTitle: document.getElementById("bookTitle").value
+    };
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(book),
+    };
+    const response = await fetch(url, options);
+
+    const newbook = await response.json();
+    books.push(newbook)
+    populateContent(books)
+}
+
+const createNew = document
+    .getElementById("create-book")
+    .addEventListener("click", (e) => {
+        addBook(e)
+    });
+
+const saveToLocalStorage = (arr, new_Item) => {
+    try {
+        if (localStorage.getItem("student-data") === null) {
+            // create a new local storage obj
+            localStorage.setItem("student-data", JSON.stringify(arr));
+            generateTable(arr);
+        } else {
+            // update local storage
+            const storage = JSON.parse(localStorage.getItem("student-data"));
+            storage.push(new_Item);
+            createTableBody(storage);
+            localStorage.setItem("student-data", JSON.stringify(storage));
+        }
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
 const populateContent = (data) => {
+    container.innerHTML = ''
     data?.forEach(element => {
         let card = document.createElement('div')
         card.classList.add('card')

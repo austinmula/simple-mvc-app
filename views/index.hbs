@@ -1,16 +1,32 @@
 {{!-- <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p> --}}
 
-{{!-- <div class="card">
-    <div class="card-image"></div>
-    <div class="card-content">
-        <h2>The Great Gatsby</h2>
-        <p>author: Scott Fitzgerald</p>
-        <small class="available">available</small>
+<div class="form-container">
+  <form action="" onsubmit="addBook()">
+    <div class="form-control">
+      <input
+        type="text"
+        id="bookTitle"
+        placeholder="enter book title"
+        name="bookTitle"
+      />
     </div>
-</div> --}}
+    <div class="form-control">
+      <input
+        type="text"
+        id="author"
+        placeholder="enter author name"
+        name="author"
+      />
+    </div>
+
+    <div>
+      <button type="submit" id="create-book">Submit</button>
+    </div>
+
+  </form>
+</div>
 
 <div class="container"></div>
 
 <script src="javascripts/script.js"></script>
-
