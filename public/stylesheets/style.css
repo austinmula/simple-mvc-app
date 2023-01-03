@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+.card{
+  box-shadow: -3px -2px 9px 0px rgba(163,153,153,0.68);
+-webkit-box-shadow: -3px -2px 9px 0px rgba(163,153,153,0.68);
+-moz-box-shadow: -3px -2px 9px 0px rgba(163,153,153,0.68);
+  width: 300px;
+
+ 
+}
+
+.card-image{
+  background: #685d5d;
+  height: 150px;
+}
+
+.card-content{
+ padding: .5rem 2rem;
+}
+
+small .available{
+  color: rgb(67, 160, 88);
+  font-weight: 600;
+}
